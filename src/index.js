@@ -2,7 +2,7 @@ module.exports = function check(str, bracketsConfig) {
   const brackets = {
     ")": "(",
     "]": "[",
-    "}": "{"
+    "}": "{",
     "|":"|"
   };
 
