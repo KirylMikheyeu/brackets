@@ -1,18 +1,24 @@
 module.exports = function check(str, bracketsConfig) {
-    str = str.split('');
-  for (let i = 0; i <= str.length; i++) {
-    bracketsConfig.map(bracket => {
-      if (str[i] === bracket[0] && str[i + 1] === bracket[1]) {
-        str.splice(i, 2);
-        i = i - 2;
-      }
-    });
-  }
+  const brackets = {
+    ")": "(",
+    "]": "[",
+    "}": "{"
+    "|":"|"
+  };
 
-  if (str.length !== 0) {
-    return false;
-  } else {
-    return true;
+  const st = [];
+  for (let i = 0; i < s.length; i++) {
+    if (isClosedBracket(s[i])) {
+      if (brackets[s[i]] !== st.pop()) return false;
+    } else {
+      st.push(s[i]);
+    }
   }
+  return st.length === 0;
+}
+
+function isClosedBracket(ch) {
+  return [")", "]", "}", "|"].indexOf(ch) > -1;
+}
 }
 
